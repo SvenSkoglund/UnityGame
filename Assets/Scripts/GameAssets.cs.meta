@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 76ff96b4d04c8b74d8914e7c219efa05
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pfCombatText: {instanceID: 0}
+  - clickHandler: {instanceID: 0}
+  - dashEffect: {fileID: 6566924544842284010, guid: 1243b627c031edd479f3b7b3c32e95f5,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
