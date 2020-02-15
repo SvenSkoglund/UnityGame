@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 76ff96b4d04c8b74d8914e7c219efa05
+guid: c056c6ae17596f548bb07b531c383e5a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - pfCombatText: {instanceID: 0}
-  - clickHandler: {instanceID: 0}
-  - dashEffect: {fileID: 7349800440167844937, guid: 8ae3bd3dc45465d4b87e0e8fc61af0c2,
+  - audioSource: {fileID: 1315811045162858285, guid: dcec359abff52fa45a129b618386775b,
       type: 3}
+  - soundEffect: {fileID: 8300000, guid: d107ed4365a78de48b70e449487c7ec3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -17,5 +17,5 @@ public class GameAssets : MonoBehaviour
 
     public ClickHandler clickHandler;
 
-    public LineRenderer dashEffect;
+    public Transform dashEffect;
 }

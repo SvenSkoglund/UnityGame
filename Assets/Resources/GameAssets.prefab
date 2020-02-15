@@ -45,3 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfCombatText: {fileID: 6406912459288529614, guid: 371a703d2d3a2834cadc24973e8aded3,
     type: 3}
+  clickHandler: {fileID: 0}
+  dashEffect: {fileID: 7349800440167844937, guid: 8ae3bd3dc45465d4b87e0e8fc61af0c2,
+    type: 3}
