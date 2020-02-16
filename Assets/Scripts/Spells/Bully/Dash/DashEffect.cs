@@ -16,7 +16,7 @@ public class DashEffect : MonoBehaviour
         Transform dashEffectTransform = Instantiate(GameAssets.i.dashEffect, Vector3.zero, Quaternion.identity);
         DashEffect dashEffect = dashEffectTransform.GetComponent<DashEffect>();
 
-        dashEffect.Steup(startPostition, endPosition);
+        dashEffect.Setup(startPostition, endPosition);
         return dashEffect;
     }
     private void Awake()
@@ -35,7 +35,7 @@ public class DashEffect : MonoBehaviour
 
     }
 
-    public void Steup(Vector2 startPostition, Vector2 endPosition)
+    public void Setup(Vector2 startPostition, Vector2 endPosition)
     {
         Vector3[] positions = { startPostition, endPosition };
         float distance = Vector2.Distance(startPostition,endPosition);

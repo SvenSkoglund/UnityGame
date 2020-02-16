@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public PlayerClass playerClass;
 
     EnergyBar energyBar;
+    HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +56,9 @@ public class PlayerController : MonoBehaviour
         targetingController = GetComponent<TargetingController>();
         timeSinceAutoAttack = attackSpeed;
         lastCharge = Time.time;
-        energyBar = transform.Find("pfEnergyBar").Find("ManaBar").GetComponent<EnergyBar>();
+        energyBar = Camera.main.GetComponentInChildren<EnergyBar>();
+        healthBar = Camera.main.GetComponentInChildren<HealthBar>();
+
 
 
     }

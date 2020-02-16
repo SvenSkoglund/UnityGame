@@ -21,7 +21,7 @@ public class SpellHandler : MonoBehaviour
         hasSpellPrimed = false;
         player = GameObject.Find("Player");
         targetingController = player.GetComponent<TargetingController>();
-        energyBar = transform.Find("pfEnergyBar").Find("ManaBar").GetComponent<EnergyBar>();
+        energyBar = Camera.main.GetComponentInChildren<EnergyBar>();
 
         AudioSource notEnoughEnergyAudioSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
         notEnoughEnergyAudioSource.clip = notEnoughEnergyAudioClip;
@@ -57,7 +57,14 @@ public class SpellHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-
+            if (energyBar.energy.TrySpendEnergy(spells[1].cost))
+            {
+                spells[1].Cast();
+            }
+            else
+            {
+                notEnoughEnergyAudioSource.Play();
+            };
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {

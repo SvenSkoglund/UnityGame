@@ -18,4 +18,6 @@ public class GameAssets : MonoBehaviour
     public ClickHandler clickHandler;
 
     public Transform dashEffect;
+
+    public Transform rageEffect;
 }

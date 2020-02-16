@@ -26,7 +26,6 @@ public class Dash : Spell, Primeable
     // Update is called once per frame
     void Update()
     {
-        UpdateLineColor();
         Vector2 mousePosition = player.GetComponent<ClickHandler>().getMousePosition();
         Vector2 playerPosition = player.GetComponent<Rigidbody2D>().position;
         float distance = Vector2.Distance(mousePosition,playerPosition);
@@ -34,20 +33,6 @@ public class Dash : Spell, Primeable
 
     }
 
-    public void UpdateLineColor()
-    {
-        if (dashEffect != null)
-        {
-
-            effectAlpha -= Time.deltaTime * effectFadeSpeed;
-            Color start = Color.white;
-            start.a = effectAlpha;
-            Color end = Color.red;
-            end.a = effectAlpha;
-            dashEffect.startColor = start;
-            dashEffect.endColor = end;
-        }
-    }
 
     public override bool Cast()
     {
@@ -82,27 +67,7 @@ public class Dash : Spell, Primeable
         Debug.Log("Cast Dash");
         return wasCast;
     }
-    public void generateEffect(Vector2 startPosition, Vector2 endPosition)
-    {
-        // dashEffect = Instantiate(GameAssets.i.dashEffect, gameObject.transform.position, Quaternion.identity);
-        dashEffect.sortingLayerName = "Bottom";
-        dashEffect.sortingOrder = 0;
-        dashEffect.startWidth = .1f;
-        dashEffect.endWidth = .5f;
-        dashEffect.useWorldSpace = true;
-        dashEffect.startColor = Color.white;
-        dashEffect.endColor = Color.red;
-        dashEffect.material = new Material(Shader.Find("Sprites/Default"));
-        effectFadeSpeed = .01f;
-        effectAlpha = 1f;
-        Vector3[] positions = new Vector3[2];
-        positions[0] = startPosition;
-        positions[1] = endPosition;
-        dashEffect.SetPositions(positions);
-        effectAlpha = 1f;
 
-
-    }
     public bool Prime()
     {
         bool wasCast = false;

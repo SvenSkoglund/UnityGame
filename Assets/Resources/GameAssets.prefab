@@ -48,3 +48,5 @@ MonoBehaviour:
   clickHandler: {fileID: 0}
   dashEffect: {fileID: 7349800440167844937, guid: 8ae3bd3dc45465d4b87e0e8fc61af0c2,
     type: 3}
+  rageEffect: {fileID: 4010462390695936474, guid: cc13144438f342645a5d29030cf56461,
+    type: 3}
