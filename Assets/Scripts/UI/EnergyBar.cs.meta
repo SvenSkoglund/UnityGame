@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 79139a123be7a58428eb4b00c046f14e
+guid: 27993ecf726a2474ea26c58c840c8e66
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - notEnoughEnergyAudioClip: {fileID: 8300000, guid: 28025d6211eebc843baf9d91ac83655f,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

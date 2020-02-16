@@ -44,7 +44,7 @@ public class DashEffect : MonoBehaviour
         {
             audioSource.Stop();
         }
-        audioSource.pitch -= distance * .04f;
+        audioSource.pitch -= distance * .01f;
         audioSource.PlayOneShot(audioSource.clip, 1);
 
     }

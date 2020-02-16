@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Spell : MonoBehaviour
 {
 
-     public abstract double range{ get; }
+     public abstract float range{ get; }
 
-          public abstract double damage { get; }
+          public abstract float damage { get; }
 
-     public abstract double cooldown{ get; }
-     public abstract double cost{ get; }
+     public abstract float cooldown{ get; }
+     public abstract float cost{ get; }
 
     public GameObject player;
     // Start is called before the first frame update

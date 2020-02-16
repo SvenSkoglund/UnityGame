@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public TargetingController targetingController;
 
     public PlayerClass playerClass;
+
+    EnergyBar energyBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,11 +55,13 @@ public class PlayerController : MonoBehaviour
         targetingController = GetComponent<TargetingController>();
         timeSinceAutoAttack = attackSpeed;
         lastCharge = Time.time;
+        energyBar = transform.Find("pfEnergyBar").Find("ManaBar").GetComponent<EnergyBar>();
 
-}
 
-// Update is called once per frame
-void Update()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         checkForSprinting();
         updatePosition();
@@ -82,11 +86,11 @@ void Update()
         Vector2 position = rigidbody2d.position;
         if (isSprinting)
         {
-        position.x = position.x + horizontal * Time.deltaTime  * speed * sprintSpeed;
+            position.x = position.x + horizontal * Time.deltaTime * speed * sprintSpeed;
         }
         else
         {
-            position.x = position.x + horizontal * Time.deltaTime  * speed;
+            position.x = position.x + horizontal * Time.deltaTime * speed;
         }
 
     }
@@ -97,24 +101,24 @@ void Update()
         Vector2 position = rigidbody2d.position;
         if (isSprinting)
         {
-            position.y = position.y + vertical * Time.deltaTime  * speed * sprintSpeed;
+            position.y = position.y + vertical * Time.deltaTime * speed * sprintSpeed;
         }
         else
         {
-            position.y = position.y + vertical * Time.deltaTime  * speed;
+            position.y = position.y + vertical * Time.deltaTime * speed;
         }
     }
 
     float updateRange()
     {
         float distance = -1;
-            if (targetEnemy)
-            {
-                Vector2 heading = targetEnemy.GetComponent<Rigidbody2D>().position - rigidbody2d.position;
-                distance = heading.magnitude;
-                distance = Math.Abs(Vector2.Distance(targetDirection, rigidbody2d.position));
+        if (targetEnemy)
+        {
+            Vector2 heading = targetEnemy.GetComponent<Rigidbody2D>().position - rigidbody2d.position;
+            distance = heading.magnitude;
+            distance = Math.Abs(Vector2.Distance(targetDirection, rigidbody2d.position));
 
-            if(distance > 0 && distance < .5)
+            if (distance > 0 && distance < .5)
             {
                 inMeleeRange = true;
                 Debug.Log("In Melee Range");
@@ -128,7 +132,7 @@ void Update()
             {
                 inMeleeRange = false;
             }
-            }
+        }
         return distance;
     }
 
@@ -148,11 +152,26 @@ void Update()
 
     void checkForSprinting()
     {
-        this.isSprinting = (Input.GetButton("sprint"));
+        float sprintCost = 60;
+        if (Input.GetButton("sprint"))
+        {
+            if (energyBar.energy.TrySpendEnergy(sprintCost * Time.deltaTime))
+            {
+                this.isSprinting = true;
+            }
+            else
+            {
+                this.isSprinting = false;
+            }
+        }
+        else
+        {
+            this.isSprinting = false;
+        }
     }
 
     void updatePosition()
-    {                                  
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -171,31 +190,34 @@ void Update()
         Vector2 position = rigidbody2d.position;
         if (isSprinting)
         {
-            position.x = position.x + horizontal * Time.deltaTime  * speed * sprintSpeed;
-            position.y = position.y + vertical * Time.deltaTime  * speed * sprintSpeed;
+            position.x = position.x + horizontal * Time.deltaTime * speed * sprintSpeed;
+            position.y = position.y + vertical * Time.deltaTime * speed * sprintSpeed;
         }
         else
         {
-            position.x = position.x + horizontal * Time.deltaTime  * speed;
-            position.y = position.y + vertical * Time.deltaTime  * speed;
+            position.x = position.x + horizontal * Time.deltaTime * speed;
+            position.y = position.y + vertical * Time.deltaTime * speed;
         }
         rigidbody2d.MovePosition(position);
     }
 
-        public void updatePosition(Vector2 position)
-    {                                  
+    public void updatePosition(Vector2 position)
+    {
 
         rigidbody2d.MovePosition(position);
     }
 
     void updateTargetDirection()
-    {   
+    {
 
-        try {
-        Vector2 heading = targetEnemy.GetComponent<Rigidbody2D>().position - rigidbody2d.position;
-        float distance = heading.magnitude;
-        targetDirection = heading / distance; // This is now the normalized direction.
-        } catch(Exception e){
+        try
+        {
+            Vector2 heading = targetEnemy.GetComponent<Rigidbody2D>().position - rigidbody2d.position;
+            float distance = heading.magnitude;
+            targetDirection = heading / distance; // This is now the normalized direction.
+        }
+        catch (Exception e)
+        {
             targetDirection = Vector2.zero;
         }
     }
@@ -219,11 +241,11 @@ void Update()
             if (inMeleeRange)
             {
                 isCharging = false;
-            chargeEffect.Stop();
+                chargeEffect.Stop();
 
                 return;
             }
-            position = Vector2.MoveTowards(position, targetDirection, speed * Time.deltaTime *sprintSpeed * 2);
+            position = Vector2.MoveTowards(position, targetDirection, speed * Time.deltaTime * sprintSpeed * 2);
             lookDirection.Set(-position.x, -position.y);
             lookDirection.Normalize();
 
@@ -277,7 +299,8 @@ void Update()
 
     void Cast()
     {
-        if (targetEnemy) {
+        if (targetEnemy)
+        {
             targetEnemy.GetComponent<EnemyController>().Fix();
             Debug.Log("cAST ON ENEMY");
         }

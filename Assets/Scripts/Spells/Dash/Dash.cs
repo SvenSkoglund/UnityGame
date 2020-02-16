@@ -5,10 +5,11 @@ using static Primeable;
 
 public class Dash : Spell, Primeable
 {
-    public override double range { get { return 10; } }
-    public override double damage { get { return 10; } }
-    public override double cooldown { get { return 10; } }
-    public override double cost { get { return 10; } }
+    private float calcualteCost;
+    public override float range { get { return 10; } }
+    public override float damage { get { return 10; } }
+    public override float cooldown { get { return 10; } }
+    public override float cost { get { return calcualteCost; } }
 
     [SerializeField] public LineRenderer dashEffect;
 
@@ -19,13 +20,17 @@ public class Dash : Spell, Primeable
     void Start()
     {
         player = GameObject.Find("Player");
-
+        calcualteCost = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateLineColor();
+        Vector2 mousePosition = player.GetComponent<ClickHandler>().getMousePosition();
+        Vector2 playerPosition = player.GetComponent<Rigidbody2D>().position;
+        float distance = Vector2.Distance(mousePosition,playerPosition);
+        calcualteCost = 10 + distance*2;
 
     }
 
