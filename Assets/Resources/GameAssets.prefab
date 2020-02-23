@@ -50,3 +50,9 @@ MonoBehaviour:
     type: 3}
   rageEffect: {fileID: 4010462390695936474, guid: cc13144438f342645a5d29030cf56461,
     type: 3}
+  spinEffect: {fileID: 4329482084588461971, guid: 983079d71fcd9184fa20e543c3571a9b,
+    type: 3}
+  cutEffect: {fileID: 8099489275625047823, guid: 278e53069d85a674abca461db0f5f284,
+    type: 3}
+  crippleEffect: {fileID: 8785438620155867967, guid: cdd257ac6f59bdc4f94e9d3975f8ddf2,
+    type: 3}

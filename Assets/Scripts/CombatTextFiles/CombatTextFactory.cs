@@ -26,21 +26,7 @@ public  class CombatTextFactory : MonoBehaviour
     }
 
     void displayCombatText(){
-        if(combatTextStack.Count > 0){
 
-        foreach(CombatText combatText in combatTextStack){
-            GameObject UItextGO = new GameObject("Text2");
-            UItextGO.transform.SetParent(canvas);
-
-            RectTransform trans = UItextGO.AddComponent<RectTransform>();
-            trans.anchoredPosition = canvas.position;
-
-            Text text = UItextGO.AddComponent<Text>();
-            text.text = combatText.text;
-            text.fontSize = combatText.fontSize;
-            text.color = combatText.color;
-        }
-        }
     }
     public void addCombatText(CombatText combatText){
         combatTextStack.Add(combatText);

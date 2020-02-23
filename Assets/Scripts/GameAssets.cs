@@ -20,4 +20,8 @@ public class GameAssets : MonoBehaviour
     public Transform dashEffect;
 
     public Transform rageEffect;
+    public Transform spinEffect;
+    public Transform cutEffect;
+    public Transform crippleEffect;
+
 }

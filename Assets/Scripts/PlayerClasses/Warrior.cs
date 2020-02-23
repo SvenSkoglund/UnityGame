@@ -20,6 +20,12 @@ public class Warrior : PlayerClass
     Dash dash;
 
     Rage rage;
+
+    SpinAttack spinAttack;
+
+    Cut cut;
+
+    Cripple cripple;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +41,10 @@ public class Warrior : PlayerClass
     {
         dash = gameObject.AddComponent(typeof(Dash)) as Dash;
         rage = gameObject.AddComponent(typeof(Rage)) as Rage;
+        spinAttack = gameObject.AddComponent(typeof(SpinAttack)) as SpinAttack;
+        cut = gameObject.AddComponent(typeof(Cut)) as Cut;
+        cripple = gameObject.AddComponent(typeof(Cripple)) as Cripple;
+
     }
     public override List<Spell> getSpellsForClass()
     {
@@ -42,6 +52,9 @@ public class Warrior : PlayerClass
         List<Spell> spellsForClass = new List<Spell>();
         spellsForClass.Add(dash);
         spellsForClass.Add(rage);
+        spellsForClass.Add(spinAttack);
+        spellsForClass.Add(cut);
+        spellsForClass.Add(cripple);
         return spellsForClass;
     }
 

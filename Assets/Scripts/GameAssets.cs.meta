@@ -10,6 +10,8 @@ MonoImporter:
       type: 3}
   - rageEffect: {fileID: 4010462390695936474, guid: cc13144438f342645a5d29030cf56461,
       type: 3}
+  - spinEffect: {fileID: 8205277648607891388, guid: 983079d71fcd9184fa20e543c3571a9b,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -68,7 +68,36 @@ public class SpellHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-
+            if (energyBar.energy.TrySpendEnergy(spells[2].cost))
+            {
+                spells[2].Cast();
+            }
+            else
+            {
+                notEnoughEnergyAudioSource.Play();
+            };
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (energyBar.energy.TrySpendEnergy(spells[3].cost))
+            {
+                spells[3].Cast();
+            }
+            else
+            {
+                notEnoughEnergyAudioSource.Play();
+            };
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            if (energyBar.energy.TrySpendEnergy(spells[4].cost))
+            {
+                spells[4].Cast();
+            }
+            else
+            {
+                notEnoughEnergyAudioSource.Play();
+            };
         }
     }
 
