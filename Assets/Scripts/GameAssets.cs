@@ -15,6 +15,8 @@ public class GameAssets : MonoBehaviour
 
     public Transform pfCombatText;
 
+    public Transform pfSpellIcon;
+
     public ClickHandler clickHandler;
 
     public Transform dashEffect;

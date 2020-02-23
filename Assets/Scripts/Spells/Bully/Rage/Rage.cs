@@ -9,6 +9,7 @@ public class Rage : Spell
     public override float damage { get { return 0; } }
     public override float cooldown { get { return 10; } }
     public override float cost { get { return 0; } }
+    public override string pathToIcon { get { return "ArtFiles/RageIcon"; } }
 
 
     // Start is called before the first frame update

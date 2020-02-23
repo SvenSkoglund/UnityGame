@@ -14,6 +14,17 @@ public class SpellIcon : MonoBehaviour
     private float cooldownTime;
     private bool onCooldown;
 
+    public static SpellIcon Create(int index, string pathToIcon){
+        Transform spellIconBarTransform = Camera.main.transform.Find("pfSpellIconBar").GetChild(index).transform;
+        Transform spellIconTransform =  Instantiate(GameAssets.i.pfSpellIcon, spellIconBarTransform.position, Quaternion.identity);
+        SpellIcon spellIcon = spellIconTransform.GetComponent<SpellIcon>();
+        Sprite iconImage =  Resources.Load<Sprite>(pathToIcon);
+        spellIconTransform.Find("Icon").GetComponent<Image>().sprite = iconImage;
+
+        spellIconTransform.SetParent(spellIconBarTransform);
+        // combatText.Setup(text, isCriticalHit);
+        return spellIcon;
+    }
     void Start()
     {
         cooldownTimer = transform.Find("CooldownTimer").GetComponent<TextMeshProUGUI>();

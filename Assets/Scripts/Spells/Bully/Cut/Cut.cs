@@ -9,6 +9,7 @@ public class Cut : Spell
     public override float damage { get { return 10; } }
     public override float cooldown { get { return 10; } }
     public override float cost { get { return 20; } }
+    public override string pathToIcon { get { return "ArtFiles/CutIcon"; } }
 
     public float effectFadeSpeed;
     public float effectAlpha;

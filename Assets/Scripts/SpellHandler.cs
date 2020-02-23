@@ -39,8 +39,16 @@ public class SpellHandler : MonoBehaviour
     void populateSpells()
     {
         spells = player.GetComponent<PlayerClass>().getSpellsForClass();
+        generateSpellIcons(spells);
     }
 
+    void generateSpellIcons(List<Spell> spells)
+    {
+        for (int i = 0; i < spells.Count; i++)
+        {
+            SpellIcon.Create(i, spells[i].pathToIcon);
+        }
+    }
 
     void checkForSpellCastButtons()
     {

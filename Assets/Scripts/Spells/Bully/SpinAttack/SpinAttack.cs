@@ -9,6 +9,7 @@ public class SpinAttack : Spell, Primeable
     public override float damage { get { return 10; } }
     public override float cooldown { get { return 10; } }
     public override float cost { get { return 20; } }
+    public override string pathToIcon { get { return "ArtFiles/SpinAttackIcon"; } }
 
     [SerializeField] public LineRenderer spinEffect;
 

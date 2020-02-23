@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 using static Primeable;
 
 public class Dash : Spell, Primeable
@@ -9,12 +11,17 @@ public class Dash : Spell, Primeable
     public override float range { get { return 10; } }
     public override float damage { get { return 10; } }
     public override float cooldown { get { return 10; } }
+
+    public override string pathToIcon { get { return "ArtFiles/DashIcon"; } }
+
     public override float cost { get { return calcualteCost; } }
 
     [SerializeField] public LineRenderer dashEffect;
 
     public float effectFadeSpeed;
     public float effectAlpha;
+
+    public SpellIcon dashIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +35,8 @@ public class Dash : Spell, Primeable
     {
         Vector2 mousePosition = player.GetComponent<ClickHandler>().getMousePosition();
         Vector2 playerPosition = player.GetComponent<Rigidbody2D>().position;
-        float distance = Vector2.Distance(mousePosition,playerPosition);
-        calcualteCost = 10 + distance*2;
+        float distance = Vector2.Distance(mousePosition, playerPosition);
+        calcualteCost = 10 + distance * 2;
 
     }
 

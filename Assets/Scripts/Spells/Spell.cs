@@ -11,6 +11,7 @@ public abstract class Spell : MonoBehaviour
 
      public abstract float cooldown{ get; }
      public abstract float cost{ get; }
+     public abstract string pathToIcon{ get; }
 
     public GameObject player;
     // Start is called before the first frame update
