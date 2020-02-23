@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7778105169186362817}
   - component: {fileID: 932453241300252156}
   - component: {fileID: 3154641293144425735}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Shading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6425502145461569847}
   - component: {fileID: 4736908253846671125}
   - component: {fileID: 3047186531712682638}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6530771574692136651}
   - component: {fileID: 855815903968844912}
   - component: {fileID: 1185724528458993398}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 1717410930158074601}
   - component: {fileID: 8416387692226178026}
   - component: {fileID: 2940102927054561875}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: pfSpellIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,6 +299,7 @@ MonoBehaviour:
   cooldownTimer: {fileID: 0}
   cooldownShading: {fileID: 0}
   cooldownShadingDivisor: 0
+  onCooldown: 0
 --- !u!1 &8732932376330253603
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ GameObject:
   - component: {fileID: 5167809681200409560}
   - component: {fileID: 8876357988370702297}
   - component: {fileID: 5059948463820220389}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CooldownTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,8 +373,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1523313105
+  m_SortingLayer: 2
   m_SortingOrder: 0
 --- !u!33 &5167809681200409560
 MeshFilter:
@@ -454,7 +455,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: 0

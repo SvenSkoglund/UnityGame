@@ -5,7 +5,7 @@ using static Primeable;
 
 public class SpinAttack : Spell, Primeable
 {
-    public override float range { get { return 1; } }
+    public override float range { get { return 0; } }
     public override float damage { get { return 10; } }
     public override float cooldown { get { return 10; } }
     public override float cost { get { return 20; } }

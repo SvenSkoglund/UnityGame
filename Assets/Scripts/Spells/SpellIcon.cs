@@ -7,12 +7,12 @@ using TMPro;
 public class SpellIcon : MonoBehaviour
 {
 
-    public TextMeshProUGUI cooldownTimer;
+    public TextMeshPro cooldownTimer;
     public Image cooldownShading;
     public float cooldownShadingDivisor;
 
     private float cooldownTime;
-    private bool onCooldown;
+    public bool onCooldown;
 
     public static SpellIcon Create(int index, string pathToIcon){
         Transform spellIconBarTransform = Camera.main.transform.Find("pfSpellIconBar").GetChild(index).transform;
@@ -27,7 +27,7 @@ public class SpellIcon : MonoBehaviour
     }
     void Start()
     {
-        cooldownTimer = transform.Find("CooldownTimer").GetComponent<TextMeshProUGUI>();
+        cooldownTimer = transform.Find("CooldownTimer").GetComponent<TextMeshPro>();
         cooldownShading = transform.Find("Shading").GetComponent<Image>();
         onCooldown = false;
 
@@ -52,7 +52,7 @@ public class SpellIcon : MonoBehaviour
             return;
         }
         cooldownTime -= Time.deltaTime;
-        cooldownTimer.text = cooldownTimer.ToString().ToCharArray()[0].ToString();
+        cooldownTimer.text = (cooldownTime + 1).ToString().Split('.')[0];
         cooldownShading.fillAmount -= Time.deltaTime / cooldownShadingDivisor;
     }
 

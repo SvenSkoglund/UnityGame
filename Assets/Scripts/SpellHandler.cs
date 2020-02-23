@@ -12,6 +12,7 @@ public class SpellHandler : MonoBehaviour
     public AudioSource notEnoughEnergyAudioSource;
 
     List<Spell> spells;
+    List<SpellIcon> spellIcons;
     EnergyBar energyBar;
     bool hasSpellPrimed;
 
@@ -44,9 +45,10 @@ public class SpellHandler : MonoBehaviour
 
     void generateSpellIcons(List<Spell> spells)
     {
+        spellIcons = new List<SpellIcon>();
         for (int i = 0; i < spells.Count; i++)
         {
-            SpellIcon.Create(i, spells[i].pathToIcon);
+            spellIcons.Add(SpellIcon.Create(i, spells[i].pathToIcon));
         }
     }
 
@@ -54,59 +56,44 @@ public class SpellHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (energyBar.energy.TrySpendEnergy(spells[0].cost))
-            {
-                spells[0].Cast();
-            }
-            else
-            {
-                notEnoughEnergyAudioSource.Play();
-            };
+            tryCastingSpellAtIndex(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (energyBar.energy.TrySpendEnergy(spells[1].cost))
-            {
-                spells[1].Cast();
-            }
-            else
-            {
-                notEnoughEnergyAudioSource.Play();
-            };
+            tryCastingSpellAtIndex(1);
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            if (energyBar.energy.TrySpendEnergy(spells[2].cost))
-            {
-                spells[2].Cast();
-            }
-            else
-            {
-                notEnoughEnergyAudioSource.Play();
-            };
+            tryCastingSpellAtIndex(2);
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (energyBar.energy.TrySpendEnergy(spells[3].cost))
-            {
-                spells[3].Cast();
-            }
-            else
-            {
-                notEnoughEnergyAudioSource.Play();
-            };
+            tryCastingSpellAtIndex(3);
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            if (energyBar.energy.TrySpendEnergy(spells[4].cost))
-            {
-                spells[4].Cast();
-            }
-            else
-            {
-                notEnoughEnergyAudioSource.Play();
-            };
+            tryCastingSpellAtIndex(4);
+
         }
+    }
+    void tryCastingSpellAtIndex(int index)
+    {
+        if (!spellIcons[index].onCooldown)
+        {
+            if(spells[index].isInRange())
+            if (energyBar.energy.TrySpendEnergy(spells[index].cost))
+            {
+                spells[index].Cast();
+                spellIcons[index].startCooldownTimer(spells[index].cooldown);
+            }
+        }
+        else
+        {
+            notEnoughEnergyAudioSource.Play();
+        };
     }
 
 }

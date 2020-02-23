@@ -6698,6 +6698,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1390091098453142550, guid: e501c970c8a83cc448ac25aadb29b603,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1523313105
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e501c970c8a83cc448ac25aadb29b603, type: 3}
 --- !u!224 &1432998936 stripped

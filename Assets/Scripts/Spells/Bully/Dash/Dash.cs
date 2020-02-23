@@ -8,7 +8,7 @@ using static Primeable;
 public class Dash : Spell, Primeable
 {
     private float calcualteCost;
-    public override float range { get { return 10; } }
+    public override float range { get { return 0; } }
     public override float damage { get { return 10; } }
     public override float cooldown { get { return 10; } }
 
