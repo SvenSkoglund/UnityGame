@@ -52,7 +52,7 @@ public class SpellIcon : MonoBehaviour
             return;
         }
         cooldownTime -= Time.deltaTime;
-        cooldownTimer.text = (cooldownTime + 1).ToString().Split('.')[0];
+        cooldownTimer.text = (cooldownTime + 1f).ToString().Split('.')[0];
         cooldownShading.fillAmount -= Time.deltaTime / cooldownShadingDivisor;
     }
 

@@ -16,10 +16,13 @@ public class SpinAttack : Spell, Primeable
     public float effectFadeSpeed;
     public float effectAlpha;
 
+    public float radius;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        radius = 1;
     }
 
     // Update is called once per frame
@@ -32,11 +35,11 @@ public class SpinAttack : Spell, Primeable
     public override bool Cast()
     {
         bool wasCast = false;
-        SpinAttackEffect.Create(range);
+        SpinAttackEffect.Create(radius);
         effectAlpha = 1f;
 
         Vector2 playerPosition = player.GetComponent<Rigidbody2D>().position;
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(playerPosition, range, playerPosition);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(playerPosition, radius, playerPosition);
         foreach (RaycastHit2D hit in hits)
         {
 
